@@ -30,7 +30,7 @@ export default function Navbar() {
               <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                 <img src="/img/logo.png" className="logohospital" alt="Logo" />
               </div>
-              <div className="hidden sm:block ml-3">
+              <div className=" sm:block ml-3">
                 <p className="font-bold text-lg text-blue">Sri Narayana</p>
                 <p className="text-xs text-red-500">Hospital</p>
               </div>
