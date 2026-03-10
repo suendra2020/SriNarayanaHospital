@@ -70,8 +70,7 @@ export default function Appointment() {
 
                 <form
                   action="https://formsubmit.co/surendrav9494@gmail.com"
-                  method="POST"
-                  onSubmit={handleSubmit}
+                  method="POST"                
                   className="space-y-6 bg-white p-8 rounded-xl shadow-lg border"
                 >
 
