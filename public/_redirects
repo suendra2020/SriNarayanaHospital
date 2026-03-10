@@ -1,0 +1,3 @@
+# Redirect all non-file requests to index.html for Single Page Application (SPA)
+# This ensures that all routes are handled by the React Router
+/*    /index.html   200
