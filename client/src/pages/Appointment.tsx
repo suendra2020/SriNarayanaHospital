@@ -248,7 +248,7 @@ export default function Appointment() {
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className="w-5 h-5 text-blue-600"/>
                   <a href="tel:+919019727344" className="font-semibold">
-                    +91 90197 27344
+                    +91 9591444271
                   </a>
                 </div>
 
