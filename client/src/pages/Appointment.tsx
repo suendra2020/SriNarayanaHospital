@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, Clock, Phone, Mail, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -39,13 +38,6 @@ export default function Appointment() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const name = formData.get("name");
-    const phone = formData.get("phone");
-    const department = formData.get("department");
-    const doctor = formData.get("doctor");
-    const date = formData.get("date");
-    const time = formData.get("time");
-
     try {
 
       await fetch("https://formsubmit.co/ajax/surendrav9494@gmail.com", {
@@ -55,21 +47,6 @@ export default function Appointment() {
 
       setSubmitted(true);
       form.reset();
-
-      const message =
-        `Hello Sri Narayana Hospital,%0A%0A` +
-        `New Appointment Request:%0A` +
-        `Name: ${name}%0A` +
-        `Phone: ${phone}%0A` +
-        `Department: ${department}%0A` +
-        `Doctor: ${doctor}%0A` +
-        `Date: ${date}%0A` +
-        `Time: ${time}`;
-
-      window.open(
-        `https://wa.me/919591444271?text=${message}`,
-        "_blank"
-      );
 
     } catch (error) {
       console.error("Submission error:", error);
