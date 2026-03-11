@@ -8,23 +8,23 @@ import FloatingButtons from '@/components/FloatingButtons';
 export default function Doctors() {
   const doctors = [
     {
-      name: 'Dr. Narayana',
+      name: 'Dr. Srivishnu MuniReddy',
       title: 'General Physician',
       experience: '15+ years',
       specialization: 'General Medicine, Fever Clinic, Preventive Healthcare',
       qualifications: 'MBBS, MD (Internal Medicine)',
       availability: 'Mon - Sat, 10:00 AM - 6:00 PM',
-      image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=500&fit=crop',
+    image: '/img/munireddy.png',
       bio: 'Dr. Narayana is a highly experienced general physician with a passion for preventive healthcare and patient education. With over 15 years of clinical experience, he specializes in diagnosing and treating acute and chronic illnesses.',
     },
     {
-      name: 'Dr. Priya Sharma',
+      name: 'Dr. Anil kumar',
       title: 'Pediatric Specialist',
       experience: '12+ years',
       specialization: 'Pediatric & Family Medicine',
       qualifications: 'MBBS, MD (Pediatrics)',
       availability: 'Tue - Sun, 2:00 PM - 8:00 PM',
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop',
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       bio: 'Dr. Priya Sharma is a compassionate pediatrician dedicated to providing comprehensive healthcare for children. Her expertise includes pediatric immunization, growth monitoring, and family medicine.',
     },
     {

@@ -300,3 +300,19 @@ a{
     border: 1px solid #db1a1a;
     background: red;
 }
+.border-bg{border: 1px solid #ececec;
+}
+.border-bg:hover{
+ color:#fff;
+background: linear-gradient(90deg,rgba(58, 78, 180, 1) 0%, rgba(245, 73, 73, 1) 100%, rgba(252, 176, 69, 1) 100%);
+}
+.border-bg:hover p{
+color:#fff
+}
+
+.to-teal-100{
+
+}
+.banner-img-bg img{
+  max-width: 100%;
+}

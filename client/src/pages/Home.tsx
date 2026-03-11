@@ -12,31 +12,35 @@ export default function Home() {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   const heroSlides = [
-    {
-      title: '24/7 Emergency Care',
-      subtitle: 'Immediate medical assistance anytime, anywhere',
-      icon: Zap,
-      color: 'from-blue-600 to-blue-400',
-    },
-    {
-      title: 'Experienced Doctors & Specialists',
-      subtitle: 'Expert medical professionals with years of experience',
-      icon: Stethoscope,
-      color: 'from-teal-600 to-teal-400',
-    },
-    {
-      title: 'Modern Laboratory & Diagnostics',
-      subtitle: 'Advanced equipment for accurate diagnosis',
-      icon: Microscope,
-      color: 'from-orange-600 to-orange-400',
-    },
-    {
-      title: 'Pediatric & Family Healthcare',
-      subtitle: 'Comprehensive care for the whole family',
-      icon: Users,
-      color: 'from-green-600 to-green-400',
-    },
-  ];
+  {
+    title: "24/7 Emergency Care",
+    subtitle: "Immediate medical assistance anytime, anywhere",
+    icon: Zap,
+    color: "from-blue-600 to-blue-400",
+    image: "https://plus.unsplash.com/premium_photo-1664476541563-ab0ea7020026?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Experienced Doctors & Specialists",
+    subtitle: "Expert medical professionals with years of experience",
+    icon: Stethoscope,
+    color: "from-teal-600 to-teal-400",
+    image: "https://images.unsplash.com/photo-1745420052490-285dbfa1cf4d?q=80&w=861&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Modern Laboratory & Diagnostics",
+    subtitle: "Advanced equipment for accurate diagnosis",
+    icon: Microscope,
+    color: "from-orange-600 to-orange-400",
+    image: "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Pediatric & Family Healthcare",
+    subtitle: "Comprehensive care for the whole family",
+    icon: Users,
+    color: "from-green-600 to-green-400",
+    image: "https://plus.unsplash.com/premium_photo-1661963206548-43535c2d564e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
 
   const services = [
     {
@@ -73,18 +77,18 @@ export default function Home() {
 
   const doctors = [
     {
-      name: 'Dr. Narayana',
+      name: 'Dr. Srivishnu MuniReddy',
       title: 'General Physician',
       experience: '15+ years',
       specialization: 'General Medicine, Fever Clinic, Preventive Healthcare',
-      image: 'https://images.unsplash.com/photo-1612349317150-e539c59dc506?w=400&h=500&fit=crop',
+      image: '/img/munireddy.png',
     },
     {
-      name: 'Dr. Priya Sharma',
+      name: 'Dr. Anil Kumar',
       title: 'Pediatric Specialist',
       experience: '12+ years',
       specialization: 'Pediatric & Family Medicine',
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop',
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
       name: 'Dr. Rajesh Kumar',
@@ -149,59 +153,81 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Carousel */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden bg-gradient-to-r from-primary to-accent-teal">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white z-10 px-4">
-            <div className="mb-6 flex justify-center">
-              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <CurrentIcon className="w-10 h-10" />
-              </div>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {heroSlides[currentSlide].title}
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8">
-              {heroSlides[currentSlide].subtitle}
-            </p>
-            <Link href="/appointment">
-              <a className="no-underline">
-                <Button size="lg" className="bg-accent-orange hover:bg-orange-600 text-white">
-                  Book Appointment Now
-                </Button>
-              </a>
-            </Link>
-          </div>
-        </div>
+    <section className="banner-img-bg relative h-96 md:h-[500px] overflow-hidden bg-gradient-to-r">
 
-        {/* Carousel Controls */}
-        <button
-          onClick={prevSlide}
-          onMouseEnter={() => setIsAutoPlay(false)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          onMouseEnter={() => setIsAutoPlay(false)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
+  {/* Background Image */}
+  <img
+    src={heroSlides[currentSlide].image}
+    alt="Hospital Slide"
+    className="absolute inset-0 w-full h-full object-cover transition-all duration-700"
+  />
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-              }`}
-            />
-          ))}
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+
+  {/* Content */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center text-white z-10 px-4">
+
+      <div className="mb-6 flex justify-center">
+        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+          <CurrentIcon className="w-10 h-10" />
         </div>
-      </section>
+      </div>
+
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        {heroSlides[currentSlide].title}
+      </h1>
+
+      <p className="text-lg md:text-xl text-white/90 mb-8">
+        {heroSlides[currentSlide].subtitle}
+      </p>
+
+      <Link href="/appointment">
+        <a className="no-underline">
+          <Button
+            size="lg"
+            className="bg-accent-orange hover:bg-orange-600 text-white"
+          >
+            Book Appointment Now
+          </Button>
+        </a>
+      </Link>
+
+    </div>
+  </div>
+
+  {/* Carousel Controls */}
+  <button
+    onClick={prevSlide}
+    onMouseEnter={() => setIsAutoPlay(false)}
+    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full"
+  >
+    <ChevronLeft className="w-6 h-6" />
+  </button>
+
+  <button
+    onClick={nextSlide}
+    onMouseEnter={() => setIsAutoPlay(false)}
+    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full"
+  >
+    <ChevronRight className="w-6 h-6" />
+  </button>
+
+  {/* Slide Indicators */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+    {heroSlides.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => goToSlide(index)}
+        className={`w-3 h-3 rounded-full transition-all ${
+          index === currentSlide ? "bg-white w-8" : "bg-white/50"
+        }`}
+      />
+    ))}
+  </div>
+
+</section>
 
       {/* Quick Info Banner */}
       <section className="stats-section py-12">
@@ -310,7 +336,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px]"
+                  className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px] border-bg"
                 >
                   <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-primary" />
