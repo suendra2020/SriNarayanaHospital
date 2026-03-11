@@ -67,7 +67,7 @@ export default function Appointment() {
         `Time: ${time}`;
 
       window.open(
-        `https://wa.me/919019727344?text=${message}`,
+        `https://wa.me/919591444271?text=${message}`,
         "_blank"
       );
 
@@ -248,7 +248,7 @@ export default function Appointment() {
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className="w-5 h-5 text-blue-600"/>
                   <a href="tel:+919019727344" className="font-semibold">
-                    +91 9591444271
+                    +91 919019727344
                   </a>
                 </div>
 
