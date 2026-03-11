@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Calendar, Clock, Phone, Mail, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -30,8 +31,49 @@ export default function Appointment() {
     "03:00 PM","03:30 PM","04:00 PM","04:30 PM",
   ];
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const today = new Date().toISOString().split("T")[0];
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const department = formData.get("department");
+    const doctor = formData.get("doctor");
+    const date = formData.get("date");
+    const time = formData.get("time");
+
+    try {
+
+      await fetch("https://formsubmit.co/ajax/surendrav9494@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      setSubmitted(true);
+      form.reset();
+
+      const message =
+        `Hello Sri Narayana Hospital,%0A%0A` +
+        `New Appointment Request:%0A` +
+        `Name: ${name}%0A` +
+        `Phone: ${phone}%0A` +
+        `Department: ${department}%0A` +
+        `Doctor: ${doctor}%0A` +
+        `Date: ${date}%0A` +
+        `Time: ${time}`;
+
+      window.open(
+        `https://wa.me/919019727344?text=${message}`,
+        "_blank"
+      );
+
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
   };
 
   return (
@@ -40,14 +82,16 @@ export default function Appointment() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-gradient-to-r from-primary to-teal-500 py-20 text-center text-white">
-        <h1 className="text-4xl font-bold mb-3">Book an Appointment</h1>
+      <section className="bg-gradient-to-r from-blue-600 to-teal-500 py-20 text-center text-white">
+        <h1 className="text-4xl font-bold mb-3">
+          Book an Appointment
+        </h1>
         <p className="text-lg opacity-90">
           Schedule your consultation with our healthcare specialists
         </p>
       </section>
 
-      {/* MAIN */}
+      {/* MAIN SECTION */}
       <section className="py-16">
         <div className="container mx-auto px-4">
 
@@ -60,25 +104,21 @@ export default function Appointment() {
 
                 <div className="bg-green-50 border border-green-200 p-8 rounded-xl text-center">
                   <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4"/>
-                  <h2 className="text-2xl font-bold mb-2">Appointment Submitted!</h2>
+                  <h2 className="text-2xl font-bold mb-2">
+                    Appointment Submitted!
+                  </h2>
                   <p className="text-gray-600">
-                    Thank you. Our hospital team will contact you shortly.
+                    Thank you for booking an appointment. 
+                    Our hospital team will contact you shortly.
                   </p>
                 </div>
 
               ) : (
 
                 <form
-                  action="https://formsubmit.co/surendrav9494@gmail.com"
-                  method="POST"                
+                  onSubmit={handleSubmit}
                   className="space-y-6 bg-white p-8 rounded-xl shadow-lg border"
                 >
-
-                  {/* FORM SUBMIT SETTINGS */}
-                  <input type="hidden" name="_captcha" value="false"/>
-                  <input type="hidden" name="_template" value="table"/>
-                  <input type="hidden" name="_subject" value="New Hospital Appointment"/>
-                  <input type="hidden" name="_autoresponse" value="Thank you for booking appointment. Our team will contact you soon."/>
 
                   {/* NAME */}
                   <div>
@@ -87,8 +127,8 @@ export default function Appointment() {
                       type="text"
                       name="name"
                       required
-                      className="w-full border rounded-lg px-4 py-3 mt-1 focus:ring-2 focus:ring-blue-500"
                       placeholder="Enter your full name"
+                      className="w-full border rounded-lg px-4 py-3 mt-1"
                     />
                   </div>
 
@@ -99,8 +139,8 @@ export default function Appointment() {
                       type="tel"
                       name="phone"
                       required
-                      className="w-full border rounded-lg px-4 py-3 mt-1"
                       placeholder="+91 XXXXX XXXXX"
+                      className="w-full border rounded-lg px-4 py-3 mt-1"
                     />
                   </div>
 
@@ -111,8 +151,8 @@ export default function Appointment() {
                       type="email"
                       name="email"
                       required
-                      className="w-full border rounded-lg px-4 py-3 mt-1"
                       placeholder="your@email.com"
+                      className="w-full border rounded-lg px-4 py-3 mt-1"
                     />
                   </div>
 
@@ -124,7 +164,7 @@ export default function Appointment() {
                       required
                       className="w-full border rounded-lg px-4 py-3 mt-1"
                     >
-                      <option value="">Select department</option>
+                      <option value="">Select Department</option>
                       {departments.map((d) => (
                         <option key={d}>{d}</option>
                       ))}
@@ -153,6 +193,7 @@ export default function Appointment() {
                       type="date"
                       name="date"
                       required
+                      min={today}
                       className="w-full border rounded-lg px-4 py-3 mt-1"
                     />
                   </div>
@@ -178,12 +219,12 @@ export default function Appointment() {
                     <textarea
                       name="message"
                       rows={4}
-                      className="w-full border rounded-lg px-4 py-3 mt-1"
                       placeholder="Describe your health concern"
+                      className="w-full border rounded-lg px-4 py-3 mt-1"
                     />
                   </div>
 
-                  {/* BUTTON */}
+                  {/* SUBMIT */}
                   <button
                     type="submit"
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition"
@@ -194,6 +235,7 @@ export default function Appointment() {
                 </form>
 
               )}
+
             </div>
 
             {/* SIDEBAR */}
@@ -218,7 +260,7 @@ export default function Appointment() {
                 </div>
               </div>
 
-              {/* HOURS */}
+              {/* WORKING HOURS */}
               <div className="bg-blue-50 p-6 rounded-xl">
                 <h3 className="font-bold flex items-center gap-2 mb-3">
                   <Clock className="w-5 h-5"/> Working Hours
