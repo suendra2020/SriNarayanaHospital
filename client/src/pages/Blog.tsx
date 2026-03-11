@@ -14,7 +14,7 @@ export default function Blog() {
       author: 'Dr. Priya Sharma',
       date: '2024-03-08',
       category: 'Pediatrics',
-      image: 'https://images.unsplash.com/photo-1631217b5f58-d0b0e5e5f6e5?w=600&h=400&fit=crop',
+      image: '/img/fever.png',
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export default function Blog() {
       author: 'Dr. Narayana',
       date: '2024-03-05',
       category: 'Neurology',
-      image: 'https://images.unsplash.com/photo-1631217b5f58-d0b0e5e5f6e5?w=600&h=400&fit=crop',
+      image: 'https://media.istockphoto.com/id/2180231033/photo/woman-suffering-intense-forehead-migraine.webp?a=1&b=1&s=612x612&w=0&k=20&c=qQ7XhjVljNhSForfGtju0Hszec37JFbkR_SUpKZRmFU=',
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ export default function Blog() {
       author: 'Dr. Narayana',
       date: '2024-03-01',
       category: 'Endocrinology',
-      image: 'https://images.unsplash.com/photo-1631217b5f58-d0b0e5e5f6e5?w=600&h=400&fit=crop',
+      image: '/img/diabitics.png',
     },
     {
       id: 4,
@@ -134,28 +134,7 @@ export default function Blog() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 md:py-24 bg-accent-green">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate mb-6">
-              Subscribe to Our Health Tips
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Get expert health advice delivered to your inbox regularly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <Button className="bg-primary hover:bg-blue-700 text-white">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-accent-teal">
